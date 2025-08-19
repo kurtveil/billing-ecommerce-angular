@@ -23,7 +23,6 @@
       "dom",
       "esnext.asynciterable"
     ],
-    "allowSyntheticDefaultImports": true,
       "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"]
