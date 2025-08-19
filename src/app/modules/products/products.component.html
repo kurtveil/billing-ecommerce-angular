@@ -1,28 +1,33 @@
+<div class="container-buttons">
+  <mat-checkbox id="check-all" (change)="toggleAllSelection($event.checked)" [checked]="isAllSelected()"
+    [indeterminate]="isSomeSelected()">
+  </mat-checkbox>
+
 <button mat-icon-button>
-<mat-icon matTooltip="Agregar producto" (click)="addProduct()">add</mat-icon>
+  <mat-icon matTooltip="Agregar producto" (click)="addProduct()">add</mat-icon>
 </button>
 
 @if (selectedProducts.size > 0) {
-  <button mat-icon-button>
-    <mat-icon aria-hidden="false" matTooltip="Eliminar productos" aria-label="Eliminar producto"
+<button mat-icon-button>
+  <mat-icon aria-hidden="false" matTooltip="Eliminar productos" aria-label="Eliminar producto"
     (click)="deleteProducts()" fontIcon="delete">
-    </mat-icon>
-  </button>
+  </mat-icon>
+</button>
 }
+</div>
+
 
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   @for (column of displayedColumns; track $index) {
   <ng-container [matColumnDef]="column">
-    <mat-header-cell *matHeaderCellDef> 
+    <mat-header-cell *matHeaderCellDef>
       {{ column | titlecase }}
     </mat-header-cell>
     <mat-cell *matCellDef="let element">
       @if (column === 'select') {
-        <mat-checkbox
-          (change)="toggleSelection(element.id, $event.checked)"
-          [checked]="selectedProducts.has(element.id)">
-        </mat-checkbox>
-      } 
+      <mat-checkbox (change)="toggleSelection(element.id, $event.checked)" [checked]="selectedProducts.has(element.id)">
+      </mat-checkbox>
+      }
       @if(column === 'actions'){
       <mat-icon aria-hidden="false" matTooltip="Editar producto" aria-label="Editar producto"
         (click)="editProduct(element)" fontIcon="edit"></mat-icon>
