@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { MaterialModule } from '../../core/modules/material.module';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { SharedService } from '../../core/services/shared.service';
 import { User } from '../../shared/models/user.model';
 
@@ -10,7 +10,7 @@ import { User } from '../../shared/models/user.model';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   standalone: true,
-  imports: [MaterialModule, RouterOutlet, CommonModule, RouterModule],
+  imports: [MaterialModule, RouterOutlet, RouterModule],
 })
 export class HomeComponent implements OnInit {
   protected readonly fillerNav = [

@@ -5,14 +5,14 @@ import { Product } from '../products.component';
 import { ProductService } from '../../../core/services/products/product.service';
 import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { CurrencyFormatPipe } from '../../../core/pipes/currency-format.pipe';
 import { CodeScannerComponent } from '../../../shared/code-scanner/code-scanner.component';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [MaterialModule, ReactiveFormsModule, CommonModule, CodeScannerComponent],
+  imports: [MaterialModule, ReactiveFormsModule, CodeScannerComponent],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.scss',
   providers: [

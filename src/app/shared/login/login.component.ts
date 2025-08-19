@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, Inject, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { AfterViewInit, Component, Inject, inject, OnInit, PLATFORM_ID, signal, DOCUMENT } from '@angular/core';
 import { MaterialModule } from '../../core/modules/material.module';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { SnackbarComponent } from '../snackbar/snackbar.component';
 import { Router, RouterModule } from '@angular/router';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { SharedService } from '../../core/services/shared.service';
 
 declare const google: any;
