@@ -14,6 +14,13 @@
     "server.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+     "src/**/*.ts",
+    "src/**/*.html"
+
+  ],
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
   ]
+
 }

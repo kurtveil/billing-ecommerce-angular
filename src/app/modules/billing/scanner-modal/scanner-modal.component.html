@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+  
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    @if(isForm){
+      <form [formGroup]="form" (ngSubmit)="addTransaction()">
+        <mat-form-field appearance="fill">
+          <mat-label>Codigo de barras</mat-label>
+          <input matInput formControlName="barcode" name="barcode" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" name="name" required>
+        </mat-form-field> <mat-form-field appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="description" name="description" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Cantidad</mat-label>
+          <input matInput formControlName="quantity" name="quantity" required>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Agregar</button>
+        <button mat-raised-button color="warn" (click)="close()">Cerrar</button>
+      </form>
+    }  @else {
+      <app-code-scanner (code)="codeScanned($event)"></app-code-scanner>
+      
+    }
+
+  </div>
+
+</mat-dialog-content>

@@ -1,0 +1,79 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+@if (data.title === 'Agregar Producto'){
+  <button mat-stroked-button (click)="onScanner()">
+    <mat-icon aria-hidden="false" matTooltip="Codigo de barras" aria-label="Example home icon">camera_alt</mat-icon>
+  </button>
+}
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    @if (isScanner){
+      <app-code-scanner (code)="codeScanned($event)"></app-code-scanner>
+    }
+    <form [formGroup]="productForm" (ngSubmit)="submit()">
+      <div>
+        <mat-form-field ngSkipHydration>
+          <input type="text" matInput placeholder="Nombre" formControlName="name">
+          @if (productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched))
+          {
+          @if (productForm.get('name')?.errors?.['required']) {
+          <mat-error>El nombre es requerido.</mat-error>
+          }
+          }
+        </mat-form-field>
+        <mat-form-field ngSkipHydration>
+          <input type="text" matInput placeholder="Descripción" formControlName="description">
+          @if (productForm.get('description')?.invalid && (productForm.get('description')?.dirty ||
+          productForm.get('description')?.touched)) {
+          @if (productForm.get('description')?.errors?.['required']) {
+          <mat-error>La descripción es requerido.</mat-error>
+          }
+          }
+        </mat-form-field>
+        <mat-form-field ngSkipHydration>
+          <input type="number" matInput placeholder="Precio" formControlName="price">
+          @if (productForm.get('price')?.invalid && (productForm.get('price')?.dirty ||
+          productForm.get('price')?.touched)) {
+          @if (productForm.get('price')?.errors?.['required']) {
+          <mat-error>El precio es requerido.</mat-error>
+          }
+          }
+        </mat-form-field>
+        <mat-form-field ngSkipHydration>
+          <input type="text" matInput placeholder="Codigo" formControlName="code">
+
+        </mat-form-field>
+        <mat-form-field ngSkipHydration>
+          <input type="number" matInput placeholder="Cantidad" formControlName="amount">
+          @if (productForm.get('amount')?.invalid && (productForm.get('amount')?.dirty ||
+          productForm.get('amount')?.touched)) {
+          @if (productForm.get('amount')?.errors?.['required']) {
+          <mat-error>La cantidad es requerido.</mat-error>
+          }
+          }
+        </mat-form-field>
+        <mat-form-field ngSkipHydration>
+          <input type="text" matInput placeholder="Caracteristicas" formControlName="characteristics">
+          @if (productForm.get('characteristics')?.invalid && (productForm.get('characteristics')?.dirty ||
+          productForm.get('characteristics')?.touched)) {
+          @if (productForm.get('characteristics')?.errors?.['required']) {
+          <mat-error>Las caracteristicas es requerido.</mat-error>
+          }
+          }
+        </mat-form-field>
+      </div>
+      @if(productForm.invalid && (productForm.dirty || productForm.touched)){
+      <div class="error">
+        {{ error }}
+      </div>
+      }
+
+
+      <div class="button">
+        <button type="submit" [disabled]="!productForm.valid" color="primary" mat-dialog-close
+          mat-flat-button>Guardar</button>
+      </div>
+
+    </form>
+  </div>
+
+</mat-dialog-content>
