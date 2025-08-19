@@ -1,7 +1,7 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, Inject, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { MaterialModule } from '../../core/modules/material.module';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { SharedService } from '../../core/services/shared.service';
 import { User } from '../../shared/models/user.model';
 
@@ -20,10 +20,18 @@ export class HomeComponent implements OnInit {
     { name: 'Drafts', route: 'drafts' }
   ];
   protected readonly isMobile = signal(true);
-  public user!: User;
+  public user: User = {
+    picture: '',
+    username: '',
+    password: '',
+    email: '',
+    name: '',
+  };
+
   constructor(
     public router: Router,
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit(): void {
@@ -35,9 +43,11 @@ export class HomeComponent implements OnInit {
         console.log('No hay usuario autenticado');
       }
     });
-    this.user = JSON.parse(sessionStorage.getItem('user') || '{}') as User;
-    console.log(this.user);
-    
+    if (isPlatformBrowser(this.platformId)) {
+      this.user = JSON.parse(sessionStorage.getItem('user') || '{}') as User;
+      console.log(this.user);
+    }
+
   }
 
   signOut() {

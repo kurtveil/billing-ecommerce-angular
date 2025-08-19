@@ -2,23 +2,6 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 @include mat.core();
-// @import '@angular/material/theming';
-
-// $light-primary: mat-palette($mat-indigo);
-// $light-accent: mat-palette($mat-pink, A200, A100, A400);
-// $light-theme: mat-light-theme($light-primary, $light-accent);
-
-// $dark-primary: mat-palette($mat-blue-grey);
-// $dark-accent: mat-palette($mat-lime, A200, A100, A400);
-// $dark-theme: mat-dark-theme($dark-primary, $dark-accent);
-
-// .light-theme {
-//   @include angular-material-theme($light-theme);
-// }
-
-// .dark-theme {
-//   @include angular-material-theme($dark-theme);
-// }
 
 
 // Define the theme object.
@@ -61,4 +44,18 @@ body { margin: 0; font-family: Roboto, sans-serif; }
 }
 a, mat-card-title{
   color: white;
+}
+button{
+    cursor: pointer;
+    margin: 1.5vh 1.5vw;
+}
+@media screen and (max-width: 768px) {
+  mat-header-cell, mat-cell {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .action-icons mat-icon {
+    font-size: 20px;
+  }
 }

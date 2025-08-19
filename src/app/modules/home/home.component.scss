@@ -33,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #291616;
   }
   
   .toolbar-left {
@@ -46,4 +47,7 @@
   }
   mat-sidenav-content{
     margin: 6vh;
+    border-radius: 1vh;
+    padding: 1.5vh 0;
+    background: #3d2121;
   }

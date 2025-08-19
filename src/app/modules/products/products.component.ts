@@ -113,4 +113,8 @@ toggleAllSelection(checked: boolean): void {
   }
 }
 
+deleteProducts(): void {
+  
+}
+
 }

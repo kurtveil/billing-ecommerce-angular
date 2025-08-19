@@ -1,7 +1,9 @@
 <div class="container" [class.is-mobile]="isMobile()">
   <mat-toolbar class="toolbar">
     <div class="toolbar-left">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <button mat-icon-button >
+        <mat-icon (click)="snav.toggle()">menu</mat-icon>
+      </button>
     </div>
     <div class="toolbar-right">
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -21,7 +23,7 @@
     <mat-sidenav #snav [mode]="isMobile() ? 'over' : 'side'" [fixedInViewport]="isMobile()" fixedTopGap="56">
       <mat-nav-list>
         @for (nav of fillerNav; track nav) {
-        <a mat-list-item [routerLink]="[nav.route]">{{nav.name}}</a>
+        <a mat-list-item [routerLink]="[nav.route]" (click)="snav.close()">{{nav.name}}</a>
         }
       </mat-nav-list>
     </mat-sidenav>
