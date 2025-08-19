@@ -1,4 +1,4 @@
-import { Component, Inject, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { MaterialModule } from '../../core/modules/material.module';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   protected readonly fillerNav = [
     { name: 'Products', route: "/home/products" },
     { name: 'Transacciones', route: "/home/transactions" },
-    { name: 'Send email', route: 'send' },
-    { name: 'Drafts', route: 'drafts' }
+    { name: 'Ecommerce', route: 'send' },
+    { name: 'About me', route: 'drafts' }
   ];
   protected readonly isMobile = signal(true);
   public user: User = {

@@ -61,3 +61,11 @@ button{
     font-size: 20px;
   }
 }
+.mat-mdc-table {
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;
+    min-width: 600px;
+    --mat-table-background-color: #232323;
+  }
+  
